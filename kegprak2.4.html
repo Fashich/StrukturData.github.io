@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan Praktikum 2.4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .code {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid #007bff; 
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: auto; 
+        }
+        .code pre {
+            margin: 0;
+            padding: 0;
+            white-space: pre-wrap; 
+            tab-size: 4; 
+        }
+        .ButtonStyle {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgb(52, 35, 6);
+            background-image: linear-gradient(
+                to top left,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)
+            );
+            box-shadow:
+                inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+            }
+
+        .styled:hover {
+            background-color: rgb(84, 60, 10);
+        }
+
+        .styled:active {
+            box-shadow:
+                inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Merge Sort</h1>
+        <div class="code">
+            <pre><code> using System;
+                using System.Collections.Generic;
+                using System.Linq;
+                using System.Text;
+                using System.Threading.Tasks;
+
+                namespace _2._4_MergeSort
+                {
+                    internal class Program
+                    {
+                        // Fungsi untuk menggabungkan dua bagian array yang sudah diurutkan
+                        static void Merge(int[] array, int kiri, int tengah, int kanan)
+                        {
+                            int nilai1 = tengah - kiri + 1;
+                            int nilai2 = kanan - tengah;
+
+                            // Buat array sementara untuk dua bagian
+                            int[] kekiri = new int[nilai1];
+                            int[] kekanan = new int[nilai2];
+
+                            // Salin data ke array sementara
+                            for (int i = 0; i < nilai1; ++i)
+                            {
+                                kekiri[i] = array[kiri + i];
+                            }
+                            for (int j = 0; j < nilai2; ++j)
+                            {
+                                kekanan[j] = array[tengah + 1 + j];
+                            }
+
+                            // Gabungkan dua array sementara kembali ke array utama
+                            int a = kiri;
+                            int b = 0, c = 0;
+                            while (b < nilai1 && c < nilai2)
+                            {
+                                if (kekiri[b] <= kekanan[c])
+                                {
+                                    array[a] = kekiri[b];
+                                    b++;
+                                }
+                                else
+                                {
+                                    array[a] = kekanan[c];
+                                    c++;
+                                }
+                                a++;
+                            }
+
+                            // Salin sisa elemen jika ada
+                            while (b < nilai1)
+                            {
+                                array[a] = kekiri[b];
+                                b++;
+                                a++;
+                            }
+
+                            while (c < nilai2)
+                            {
+                                array[a] = kekanan[c];
+                                c++;
+                                a++;
+                            }
+                        }
+
+                        // Fungsi untuk melakukan Merge Sort
+                        static void MergeSort(int[] array, int kiri, int kanan)
+                        {
+                            if (kiri < kanan)
+                            {
+                                // Temukan titik tengah array
+                                int tengah = kiri + (kanan - kiri) / 2;
+
+                                // Panggil MergeSort untuk setiap bagian kiri dan kanan
+                                MergeSort(array, kiri, tengah);
+                                MergeSort(array, kiri + 1, kanan);
+
+                                // Gabungkan dua bagian yang sudah diurutkan
+                                Merge(array, kiri, tengah, kanan);
+                            }
+                        }
+
+                        // Fungsi untuk mencetak array
+                        static void MenampilkanArray(int[] array)
+                        {
+                            foreach (int angka in array)
+                            {
+                                Console.Write(angka + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                        static void Main(string[] args)
+                        {
+                            // Definisikan array contoh
+                            int[] array = { 12, 11, 13, 5, 6, 7 };
+
+                            Console.WriteLine("Array sebelum pengurutan:");
+                            MenampilkanArray(array);
+
+                            // Lakukan Merge Sort
+                            MergeSort(array, 0, array.Length - 1);
+
+                            Console.WriteLine("\nArray setelah pengurutan:");
+                            MenampilkanArray(array);
+                        }
+                    }
+
+                }
+
+</code></pre>
+        </div>
+    </div>
+    <div class="ButtonStyle">
+        <button class="favorite styled" onclick="window.location.href='kegprak2.3.html'" type="button">Previous</button>
+        <button class="favorite styled" onclick="window.location.href='index.html'" type="button">Home</button>
+        <button class="favorite styled" onclick="window.location.href='kegprak2.5.1.html'" type="button">Next</button>
+    </div>
+</body>
+</html>

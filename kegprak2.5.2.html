@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan Praktikum 2.5.2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .code {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid #007bff; 
+            background-color: #f8f9fa; 
+            color: #333;
+            overflow-x: auto; 
+        }
+        .ButtonStyle {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgb(52, 35, 6);
+            background-image: linear-gradient(
+                to top left,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)
+            );
+            box-shadow:
+                inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+            }
+
+        .styled:hover {
+            background-color: rgb(84, 60, 10);
+        }
+
+        .styled:active {
+            box-shadow:
+                inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+        .code pre {
+            margin: 0;
+            padding: 0;
+            white-space: pre-wrap; 
+            tab-size: 4; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selection Sort + Fungsi untuk mencatat waktu</h1>
+        <div class="code">
+            <pre><code> using System;
+                using System.Collections.Generic;
+                using System.Diagnostics;
+                using System.Linq;
+                using System.Text;
+                using System.Threading.Tasks;
+
+                namespace _2._5._2_SelectionSort_Function
+                {
+                    internal class Program
+                    {
+                        // Selection Sort
+                        static void SelectionSort(int[] array)
+                        {
+                            int nilai = array.Length;
+                            for (int iterasi = 0; iterasi < nilai - 1; iterasi++)
+                            {
+                                int IndexMaximum = 0;
+                                for (int i = 1; i < nilai - iterasi; i++)
+                                {
+                                    // Cari indeks elemen maksimum di dalam rentang [0...(n-pass-1)]
+                                    if (array[i] > array[IndexMaximum])
+                                    {
+                                        IndexMaximum = i;
+                                    }
+                                }
+                                // Pertukaran elemen maksimum dengan elemen terakhir yang belum diurutkan
+                                int TempatBarisElemen = array[nilai - iterasi - 1];
+                                array[nilai - iterasi - 1] = array[IndexMaximum];
+                                array[IndexMaximum] = TempatBarisElemen;
+                            }
+                        }
+
+                        // Fungsi untuk mencetak array
+                        static void MenampilkanArray(int[] array)
+                        {
+                            foreach (int angka in array)
+                            {
+                                Console.Write(angka + " ");
+                            }
+                            Console.WriteLine();
+                        }
+
+                        static void Main(string[] args)
+                        {
+                            // Definisikan array contoh
+                            int[] array = { 2, 4, 6, 8, 10, 12, 14, 16 };
+
+                            Console.WriteLine("Array sebelum pengurutan:");
+                            MenampilkanArray(array);
+
+                            // Catat waktu awal
+                            Stopwatch stopwatch = Stopwatch.StartNew();
+
+                            // Lakukan Selection Sort
+                            SelectionSort(array);
+
+                            // Hentikan penghitungan waktu
+                            stopwatch.Stop();
+
+                            Console.WriteLine("\nArray setelah pengurutan:");
+                            MenampilkanArray(array);
+
+                            // Tampilkan waktu yang diperlukan untuk pengurutan
+                            Console.WriteLine($"\nWaktu yang diperlukan untuk pengurutan: {stopwatch.Elapsed}");
+                        }
+                    }
+                }
+
+</code></pre>
+        </div>
+    </div>
+    <div class="ButtonStyle">
+        <button class="favorite styled" onclick="window.location.href='kegprak2.5.1.html'" type="button">Previous</button>
+        <button class="favorite styled" onclick="window.location.href='.html'" type="button">Home</button>
+        <button class="favorite styled" onclick="window.location.href='kegprak2.5.3.html'" type="button">Next</button>
+    </div>
+</body>
+</html>

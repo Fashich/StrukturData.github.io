@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih dulu yakk</title>
+<style>
+    html {
+        background-image: url('Backgroundpilih.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        animation: fadeIn 2s;
+        overflow-x: hidden;
+        margin: 0;
+        padding-bottom: 50px; /* Menambah padding di bagian bawah */
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .container {
+        max-width: 630px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: 1.5px solid white;
+        text-decoration: none; 
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    h1 {
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+    }
+    .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .title {
+        margin-top: 50px;
+    }
+    .back-button {
+        position: auto;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    a {
+        background-color: red;
+        margin: 10px;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: 1.5px solid white;
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: crimson;
+    }
+</style>
+</head>
+<body>
+    <h1 class="title">monggo pilih!</h1>
+    <div class="container">
+        <h1 class="Prepraktikum">Prepratikum</h1>
+        <button onclick="window.location.href='pre1.1.html'">1.1 Jelaskan dan Mengilustrasikan BubbleSort dan Selection Sort!</button>
+        <button onclick="window.location.href='pre1.2.html'">1.2 Bandingkan dan Metode Sorting manakah yang terbaik? mengapa dan jelaskan!</button>
+        <h1 class="Kegiatan-Praktikum">Kegiatan Praktikum</h1>
+        <div class="button-group">
+            <button onclick="window.location.href='kegprak2.1.html'">2.1 Bubble Sort</button>
+            <button onclick="window.location.href='kegprak2.2.html'">2.2 Selection Sort</button>
+            <button onclick="window.location.href='kegprak2.3.html'">2.3 Heap Sort</button>
+            <button onclick="window.location.href='kegprak2.4.html'">2.4 Merge Sort</button>
+            <button onclick="window.location.href='kegprak2.5.1.html'">2.5.1 Bubble Sort + Fungsi untuk mencatat waktu</button>
+            <button onclick="window.location.href='kegprak2.5.2.html'">2.5.2 Selection + Fungsi untuk mencatat waktu</button>
+            <button onclick="window.location.href='kegprak2.5.3.html'">2.5.3 Heap + Fungsi untuk mencatat waktu</button>
+            <button onclick="window.location.href='kegprak2.5.4.html'">2.5.4 Merge + Fungsi untuk mencatat waktu</button>
+        </div>
+        <h1 class="Hasil-Praktikum">Hasil Praktikum</h1>
+        <button onclick="window.location.href='hasilpraktikum.html'">Hasil Prepraktikum + Kegiatan Praktikum</button>
+        <h1 class="Kesimpulan">kesimpulan</h1>
+        <button onclick="window.location.href='kesimpulan.html'">Read</button>
+        <h1 class="Evaluasi">evaluasi</h1>
+        <button onclick="window.location.href='eval3.1.html'">3.1 Insert Sorting</button>
+        <button onclick="window.location.href='eval3.2.html'">3.2 Quick Sorting</button>
+    </div>
+    <a href="index.html" class="back-button">Back</a>
+</body>
+</html>

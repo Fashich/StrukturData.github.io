@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi 3.1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .code {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid #007bff; 
+            background-color: #f8f9fa; 
+            color: #333;
+            overflow-x: auto; 
+        }
+        .ButtonStyle {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgb(52, 35, 6);
+            background-image: linear-gradient(
+                to top left,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)
+            );
+            box-shadow:
+                inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+            }
+
+        .styled:hover {
+            background-color: rgb(84, 60, 10);
+        }
+
+        .styled:active {
+            box-shadow:
+                inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+        .code pre {
+            margin: 0;
+            padding: 0;
+            white-space: pre-wrap; 
+            tab-size: 4; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Insert Sorting</h1>
+        <div class="code">
+            <pre><code> using System;
+                                                                            using System.Collections.Generic;
+                                                                            using System.Linq;
+                                                                            using System.Text;
+                                                                            using System.Threading.Tasks;
+
+                                                                            namespace _3._2_Quick_Sorting
+                                                                            {
+                                                                                internal class Program
+                                                                                {
+                                                                                    // Fungsi untuk melakukan Quick Sort
+                                                                                    static void QuickSort(int[] array, int rendah, int tinggi)
+                                                                                    {
+                                                                                        if (rendah < tinggi)
+                                                                                        {
+                                                                                            // Partition index adalah indeks tempat elemen terakhir dari pivot akan ditempatkan
+                                                                                            int partikelphi = Partition(array, rendah, tinggi);
+
+                                                                                            // Pisahkan secara rekursif elemen sebelum dan setelah partition index
+                                                                                            QuickSort(array, rendah, partikelphi - 1);
+                                                                                            QuickSort(array, partikelphi + 1, tinggi);
+                                                                                        }
+                                                                                    }
+                                                                                    // Fungsi untuk memilih pivot dan mempartisi array
+                                                                                    static int Partition(int[] array, int rendah, int tinggi)
+                                                                                    {
+                                                                                        // Pilih pivot (misalnya, elemen terakhir)
+                                                                                        int pivot = array[tinggi];
+                                                                                        int i = (rendah - 1); // Indeks elemen yang lebih kecil dari pivot
+
+                                                                                        for (int j = rendah; j < tinggi; j++)
+                                                                                        {
+                                                                                            // Jika elemen saat ini lebih kecil atau sama dengan pivot
+                                                                                            if (array[j] <= pivot)
+                                                                                            {
+                                                                                                i++;
+
+                                                                                                // Tukar arr[i] dengan arr[j]
+                                                                                                int tempatbariselemen = array[i];
+                                                                                                array[i] = array[j];
+                                                                                                array[j] = tempatbariselemen;
+                                                                                            }
+                                                                                        }
+                                                                                        // Tukar arr[i+1] dengan arr[high] (atau pivot)
+                                                                                        int tempatbariselemenindeks1 = array[i + 1];
+                                                                                        array[i + 1] = array[tinggi];
+                                                                                        array[tinggi] = tempatbariselemenindeks1;
+
+                                                                                        return i + 1;
+                                                                                    }
+                                                                                    // Fungsi untuk mencetak array
+                                                                                    static void MenampilkanArray(int[] array)
+                                                                                    {
+                                                                                        foreach (int angka in array)
+                                                                                        {
+                                                                                            Console.Write(angka + " ");
+                                                                                        }
+                                                                                        Console.WriteLine();
+                                                                                    }
+                                                                                    static void Main(string[] args)
+                                                                                    {
+                                                                                        // Definisikan array contoh
+                                                                                        int[] array = { 10, 7, 8, 9, 1, 5 };
+                                                                                        int nilai = array.Length;
+                                                                                        Console.WriteLine("Array sebelum pengurutan:");
+                                                                                        MenampilkanArray(array);
+                                                                                        // Lakukan Quick Sort
+                                                                                        QuickSort(array, 0, nilai - 1);
+                                                                                        Console.WriteLine("\nArray setelah pengurutan:");
+                                                                                        MenampilkanArray(array);
+                                                                                    }
+                                                                                }
+                                                                            }
+</code></pre>
+        </div>
+    </div>
+    <div class="ButtonStyle">
+        <button class="favorite styled" onclick="window.location.href='eval3.1.html'" type="button">Previous</button>
+        <button class="favorite styled" onclick="window.location.href='index.html'" type="button">Home</button>
+        <button class="favorite styled" onclick="window.location.href='https://classroom.google.com/c/NjYxODg0ODMyMzM5/a/Njc4NTIwNDA3NDA1/details'" type="button">Done</button>
+    </div>
+</body>
+</html>

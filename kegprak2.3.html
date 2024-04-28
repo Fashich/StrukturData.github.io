@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan Praktikum 2.3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .code {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid #007bff; 
+            background-color: #f8f9fa; 
+            color: #333;
+            overflow-x: auto;
+        }
+        .code pre {
+            margin: 0;
+            padding: 0;
+            white-space: pre-wrap;
+            tab-size: 4; 
+        }
+        .ButtonStyle {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgb(52, 35, 6);
+            background-image: linear-gradient(
+                to top left,
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.2) 30%,
+                rgba(0, 0, 0, 0)
+            );
+            box-shadow:
+                inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+            }
+
+        .styled:hover {
+            background-color: rgb(84, 60, 10);
+        }
+
+        .styled:active {
+            box-shadow:
+                inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Heap Sort</h1>
+        <div class="code">
+            <pre><code> using System;
+                using System.Collections.Generic;
+                using System.Linq;
+                using System.Text;
+                using System.Threading.Tasks;
+
+                namespace _2._3_HeapSort
+                {
+                    internal class Program
+                    {
+                        // Fungsi untuk melakukan Heapify pada array
+                        static void Heapify(int[] array, int nilai, int i)
+                        {
+                            int terbesar = i; // Menginisialisasi node terbesar sebagai root
+                            int kiri = 2 * i + 1; // Indeks anak kiri
+                            int kanan = 2 * i + 2; // Indeks anak kanan
+
+                            // Jika anak kiri lebih besar dari root
+                            if (kiri < nilai && array[kiri] > array[terbesar])
+                            {
+                                terbesar = kiri;
+                            }
+
+                            // Jika anak kanan lebih besar dari root
+                            if (kanan < nilai && array[kanan] > array[terbesar])
+                            {
+                                terbesar = kanan;
+                            }
+
+                            // Jika root tidak lagi terbesar
+                            if (terbesar != i)
+                            {
+                                // Tukar dengan root
+                                int temp = array[i];
+                                array[i] = array[terbesar];
+                                array[terbesar] = temp;
+
+                                // Rekursif Heapify pada subtree yang terpengaruh
+                                Heapify(array, nilai, terbesar);
+                            }
+                        }
+
+                        // Fungsi untuk melakukan Heap Sort
+                        static void HeapSort(int[] arr)
+                        {
+                            int n = arr.Length;
+
+                            // Bangun max heap (mengubah array ke heap)
+                            for (int i = n / 2 - 1; i >= 0; i--)
+                            {
+                                Heapify(arr, n, i);
+                            }
+
+                            // Ekstrak elemen satu per satu dari heap
+                            for (int i = n - 1; i >= 0; i--)
+                            {
+                                // Tukar elemen teratas (terbesar) dengan elemen terakhir
+                                int temp = arr[0];
+                                arr[0] = arr[i];
+                                arr[i] = temp;
+
+                                // Panggil Heapify pada heap yang telah dikurangi
+                                Heapify(arr, i, 0);
+                            }
+                        }
+
+                        // Fungsi untuk mencetak array
+                        static void PrintArray(int[] arr)
+                        {
+                            foreach (int num in arr)
+                            {
+                                Console.Write(num + " ");
+                            }
+                            Console.WriteLine();
+                        }
+
+                        static void Main(string[] args)
+                        {
+                            // Definisikan array contoh
+                            int[] arr = { 12, 11, 13, 5, 6, 7 };
+
+                            Console.WriteLine("Array sebelum pengurutan:");
+                            PrintArray(arr);
+
+                            // Lakukan Heap Sort
+                            HeapSort(arr);
+
+                            Console.WriteLine("\nArray setelah pengurutan:");
+                            PrintArray(arr);
+                        }
+                    }
+
+                }
+
+</code></pre>
+        </div>
+    </div>
+    <div class="ButtonStyle">
+        <button class="favorite styled" onclick="window.location.href='kegprak2.2.html'" type="button">Previous</button>
+        <button class="favorite styled" onclick="window.location.href='index.html'" type="button">Home</button>
+        <button class="favorite styled" onclick="window.location.href='kegprak2.4.html'" type="button">Next</button>
+    </div>
+</body>
+</html>
