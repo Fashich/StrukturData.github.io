@@ -1,2 +1,2 @@
 # Fashich.github.io
-Struktur Data > Pertemuan 12 > Binary Tree > Sorting
+Struktur Data > Semester 2 > Pertemuan 12 > Binary Tree > Sorting
